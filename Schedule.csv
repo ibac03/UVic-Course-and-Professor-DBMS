@@ -1,0 +1,90 @@
+CRN,Section,Start_Date,End_Date,Timeslot,Weekday,Building,Room_number,Course_ID,Prof_netlinkID
+12997,A01,2024-09-04,2024-12-04,03:30 PM - 04:20 PM,"Monday, Wednesday, Thursday",Building: Bob Wright Centre,B150,SENG265,rbittencourt
+12998,A02,2024-09-04,2024-12-04,03:30 PM - 04:20 PM,"Monday, Wednesday, Thursday",Building: Bob Wright Centre,B150,SENG265,rbittencourt
+12999,A03,2024-09-04,2024-12-04,02:30 PM - 03:20 PM,"Monday, Wednesday, Thursday",Building: Bob Wright Centre,B150,SENG265,rbittencourt
+13000,A04,2024-09-04,2024-12-04,02:30 PM - 03:20 PM,"Monday, Wednesday, Thursday",Building: Bob Wright Centre,B150,SENG265,rbittencourt
+13001,B01,2024-09-09,2024-12-04,10:30 AM - 11:50 AM,Tuesday,Building: Engineering Lab Wing,B238,SENG265,
+13002,B02,2024-09-09,2024-12-04,09:30 AM - 10:50 AM,Wednesday,Building: Engineering Lab Wing,B238,SENG265,
+13003,B03,2024-09-09,2024-12-04,11:00 AM - 12:20 PM,Wednesday,Building: Engineering Lab Wing,B238,SENG265,
+13005,B05,2024-09-09,2024-12-04,01:00 PM - 02:20 PM,Thursday,Building: Engineering Lab Wing,B238,SENG265,
+13006,B06,2024-09-09,2024-12-04,12:00 PM - 01:20 PM,Tuesday,Building: Engineering Lab Wing,B238,SENG265,
+13007,B07,2024-09-09,2024-12-04,04:30 PM - 05:50 PM,Thursday,Building: Engineering Lab Wing,B238,SENG265,
+13008,B08,2024-09-09,2024-12-04,11:00 AM - 12:20 PM,Friday,Building: Engineering Lab Wing,B238,SENG265,
+13010,A01,2024-09-04,2024-12-04,02:30 PM - 03:50 PM,"Monday, Thursday",Building: Bob Wright Centre,A104,SENG310,nacenta
+13011,A02,2024-09-04,2024-12-04,02:30 PM - 03:50 PM,"Monday, Thursday",Building: Bob Wright Centre,A104,SENG310,nacenta
+13012,B01,2024-09-09,2024-12-04,08:30 AM - 10:20 AM,Tuesday,Building: Engineering Lab Wing,B215,SENG310,
+13013,B02,2024-09-09,2024-12-04,11:30 AM - 01:20 PM,Tuesday,Building: Engineering Lab Wing,B215,SENG310,
+13014,B03,2024-09-09,2024-12-04,01:30 PM - 03:20 PM,Tuesday,Building: Engineering Lab Wing,B215,SENG310,
+13016,A01,2024-09-04,2024-12-04,01:30 PM - 02:20 PM,"Tuesday, Wednesday, Friday",Building: Cornett Building,A221,SENG321,npopli
+13017,A02,2024-09-04,2024-12-04,01:30 PM - 02:20 PM,"Tuesday, Wednesday, Friday",Building: Cornett Building,A221,SENG321,npopli
+13018,B01,2024-09-09,2024-12-04,04:30 PM - 05:50 PM,"Monday, Thursday",Building: Engineering Lab Wing,B215,SENG321,
+13019,B02,2024-09-09,2024-12-04,04:30 PM - 05:50 PM,"Monday, Thursday",Building: Engineering Lab Wing,B220,SENG321,
+13020,B03,2024-09-09,2024-12-04,03:30 PM - 04:50 PM,"Tuesday, Friday",Building: Engineering Lab Wing,B215,SENG321,
+13021,A02,2024-09-04,2024-12-04,11:30 AM - 12:20 PM,"Tuesday, Wednesday, Friday",Building: Cornett Building,A121,SENG350,
+13022,B01,2024-09-09,2024-12-04,01:30 PM - 03:20 PM,Tuesday,Building: Engineering Lab Wing,B238,SENG350,
+13023,B02,2024-09-09,2024-12-04,01:30 PM - 03:20 PM,Wednesday,Building: Engineering Lab Wing,B238,SENG350,
+13024,B03,2024-09-09,2024-12-04,10:00 AM - 11:50 AM,Thursday,Building: Engineering Lab Wing,B238,SENG350,
+13025,A02,2024-09-04,2024-12-04,03:30 PM - 04:20 PM,"Monday, Wednesday, Thursday",Building: MacLaurin Building,D207,SENG360,jens
+13026,B01,2024-09-09,2024-12-04,03:30 PM - 05:20 PM,Tuesday,Building: Engineering Lab Wing,B203,SENG360,
+13027,B02,2024-09-09,2024-12-04,01:30 PM - 03:20 PM,Wednesday,Building: Engineering Lab Wing,B203,SENG360,
+13028,B03,2024-09-09,2024-12-04,04:30 PM - 06:20 PM,Wednesday,Building: Engineering Lab Wing,B203,SENG360,
+13029,B04,2024-09-09,2024-12-04,04:30 PM - 06:20 PM,Thursday,Building: Engineering Lab Wing,B203,SENG360,
+13030,A01,2024-09-04,2024-12-04,04:30 PM - 05:50 PM,"Monday, Wednesday",Building: David Strong Building,C103,SENG474,thomo
+13031,A02,2024-09-04,2024-12-04,04:30 PM - 05:50 PM,"Monday, Wednesday",Building: David Strong Building,C103,SENG474,thomo
+13032,B01,2024-09-09,2024-12-04,01:30 PM - 02:20 PM,Wednesday,Building: Engineering Lab Wing,B215,SENG474,
+13033,B02,2024-09-09,2024-12-04,02:30 PM - 03:20 PM,Wednesday,Building: Engineering Lab Wing,B215,SENG474,
+13034,B03,2024-09-09,2024-12-04,03:30 PM - 04:20 PM,Wednesday,Building: Engineering Lab Wing,B215,SENG474,
+13035,B04,2024-09-09,2024-12-04,11:30 AM - 12:20 PM,Thursday,Building: Engineering Lab Wing,B215,SENG474,
+13036,B05,2024-09-09,2024-12-04,12:30 PM - 01:20 PM,Thursday,Building: Engineering Lab Wing,B215,SENG474,
+13038,A01,2024-09-04,2024-12-04,01:30 PM - 04:20 PM,Friday,Building: Engineering Comp Science Bldg,104,SENG480A,mstorey
+13039,A02,2024-09-04,2024-12-04,01:30 PM - 04:20 PM,Friday,Building: Engineering Comp Science Bldg,104,SENG480A,mstorey
+10666,A01,2024-09-04,2024-12-04,08:30 AM - 09:50 AM,"Monday, Thursday",Building: Hickman Building,110,CSC103,danielad
+10667,A01,2024-09-04,2024-12-04,10:30 AM - 11:20 AM,"Tuesday, Wednesday, Friday",Building: David Turpin Building,A110,CSC105,
+10668,A02,2024-09-04,2024-12-04,01:30 PM - 02:20 PM,"Tuesday, Wednesday, Friday",Building: Elliott Building,167,CSC105,
+10669,A03,2024-09-04,2024-12-04,03:30 PM - 04:20 PM,"Monday, Wednesday, Friday",Building: Elliott Building,167,CSC105,
+10670,B01,2024-09-09,2024-12-04,01:30 PM - 02:20 PM,Monday,Building: Engineering Comp Science Bldg,258,CSC105,
+10671,B02,2024-09-09,2024-12-04,02:30 PM - 03:20 PM,Monday,Building: Engineering Comp Science Bldg,258,CSC105,
+10672,B03,2024-09-09,2024-12-04,08:30 AM - 09:20 AM,Tuesday,Building: Engineering Comp Science Bldg,258,CSC105,
+10673,B04,2024-09-09,2024-12-04,03:30 PM - 04:20 PM,Tuesday,Building: Engineering Comp Science Bldg,258,CSC105,
+10674,B05,2024-09-09,2024-12-04,04:30 PM - 05:20 PM,Tuesday,Building: Engineering Comp Science Bldg,258,CSC105,
+10675,B06,2024-09-09,2024-12-04,08:30 AM - 09:20 AM,Wednesday,Building: Engineering Comp Science Bldg,258,CSC105,
+10676,B07,2024-09-09,2024-12-04,11:30 AM - 12:20 PM,Wednesday,Building: Engineering Comp Science Bldg,258,CSC105,
+10677,B08,2024-09-09,2024-12-04,02:30 PM - 03:20 PM,Thursday,Building: Engineering Comp Science Bldg,258,CSC105,
+10678,B09,2024-09-09,2024-12-04,01:30 PM - 02:20 PM,Thursday,Building: Engineering Comp Science Bldg,258,CSC105,
+10679,B10,2024-09-09,2024-12-04,03:30 PM - 04:20 PM,Thursday,Building: Engineering Comp Science Bldg,258,CSC105,
+10684,A01,2024-09-04,2024-12-04,11:30 AM - 12:50 PM,"Monday, Thursday",Building: Engineering Comp Science Bldg,123,CSC110,yunlu
+10685,A02,2024-09-04,2024-12-04,11:30 AM - 12:50 PM,"Monday, Thursday",Building: Engineering Comp Science Bldg,123,CSC110,yunlu
+10686,A03,2024-09-04,2024-12-04,02:30 PM - 03:50 PM,"Monday, Thursday",Building: Engineering Comp Science Bldg,116,CSC110,yunlu
+10687,A04,2024-09-04,2024-12-04,02:30 PM - 03:50 PM,"Monday, Thursday",Building: Engineering Comp Science Bldg,116,CSC110,yunlu
+10688,A05,2024-09-04,2024-12-04,09:30 AM - 10:20 AM,"Tuesday, Wednesday, Friday",Building: Engineering Comp Science Bldg,116,CSC110,zastre
+10689,A06,2024-09-04,2024-12-04,09:30 AM - 10:20 AM,"Tuesday, Wednesday, Friday",Building: Engineering Comp Science Bldg,116,CSC110,zastre
+10690,A07,2024-09-04,2024-12-04,12:30 PM - 01:20 PM,"Tuesday, Wednesday, Friday",Building: David Turpin Building,A110,CSC110,zastre
+10691,A08,2024-09-04,2024-12-04,12:30 PM - 01:20 PM,"Tuesday, Wednesday, Friday",Building: David Turpin Building,A110,CSC110,zastre
+10692,B01,2024-09-09,2024-12-04,08:30 AM - 10:20 AM,"Tuesday, Wednesday, Friday",Building: Engineering Comp Science Bldg,250,CSC110,
+10693,B02,2024-09-09,2024-12-04,10:30 AM - 12:20 PM,Tuesday,Building: Engineering Comp Science Bldg,250,CSC110,
+10694,B03,2024-09-09,2024-12-04,01:30 PM - 03:20 PM,Tuesday,Building: Engineering Comp Science Bldg,250,CSC110,
+10695,B04,2024-09-09,2024-12-04,03:30 PM - 05:20 PM,Tuesday,Building: Engineering Comp Science Bldg,250,CSC110,
+10696,B05,2024-09-09,2024-12-04,08:30 AM - 10:20 AM,Wednesday,Building: Engineering Comp Science Bldg,250,CSC110,
+10697,B06,2024-09-09,2024-12-04,10:30 AM - 12:20 PM,Wednesday,Building: Engineering Comp Science Bldg,250,CSC110,
+10698,B07,2024-09-09,2024-12-04,01:30 PM - 03:20 PM,Wednesday,Building: Engineering Comp Science Bldg,250,CSC110,
+10700,B09,2024-09-09,2024-12-04,08:30 AM - 10:20 AM,Thursday,Building: Engineering Comp Science Bldg,250,CSC110,
+10701,B10,2024-09-09,2024-12-04,10:30 AM - 12:20 PM,Thursday,Building: Engineering Comp Science Bldg,250,CSC110,
+10702,B11,2024-09-09,2024-12-04,12:30 PM - 02:20 PM,Thursday,Building: Engineering Comp Science Bldg,250,CSC110,
+10707,A01,2024-09-04,2024-12-04,10:00 AM - 11:20 AM,"Monday, Thursday",Building: David Strong Building,C103,CSC111,aestey
+10708,A02,2024-09-04,2024-12-04,10:00 AM - 11:20 AM,"Monday, Thursday",Building: David Strong Building,C103,CSC111,aestey
+10709,A03,2024-09-04,2024-12-04,01:00 PM - 02:20 PM,"Monday, Thursday",Building: David Strong Building,C103,CSC111,aestey
+10710,A04,2024-09-04,2024-12-04,01:00 PM - 02:20 PM,"Monday, Thursday",Building: David Strong Building,C103,CSC111,aestey
+10711,B01,2024-09-09,2024-12-04,08:30 AM - 10:20 AM,Tuesday,Building: Engineering Comp Science Bldg,242,CSC111,
+10712,B02,2024-09-09,2024-12-04,10:30 AM - 12:20 PM,Tuesday,Building: Engineering Comp Science Bldg,242,CSC111,
+10713,B03,2024-09-09,2024-12-04,12:30 PM - 02:20 PM,Tuesday,Building: Engineering Comp Science Bldg,242,CSC111,
+10715,B05,2024-09-09,2024-12-04,04:30 PM - 06:20 PM,Tuesday,Building: Engineering Comp Science Bldg,242,CSC111,
+10716,B06,2024-09-09,2024-12-04,06:30 PM - 08:20 PM,Tuesday,Building: Engineering Comp Science Bldg,242,CSC111,
+10717,B07,2024-09-09,2024-12-04,08:30 AM - 10:20 AM,Wednesday,Building: Engineering Comp Science Bldg,242,CSC111,
+10718,B08,2024-09-09,2024-12-04,02:30 PM - 04:20 PM,Wednesday,Building: Engineering Comp Science Bldg,242,CSC111,
+10719,B09,2024-09-09,2024-12-04,04:30 PM - 06:20 PM,Wednesday,Building: Engineering Comp Science Bldg,242,CSC111,
+10720,B10,2024-09-09,2024-12-04,06:30 PM - 08:20 PM,Wednesday,Building: Engineering Comp Science Bldg,242,CSC111,
+10721,B11,2024-09-09,2024-12-04,02:30 PM - 04:20 PM,Thursday,Building: Engineering Comp Science Bldg,242,CSC111,
+10722,B12,2024-09-09,2024-12-04,09:30 AM - 11:20 AM,Friday,Building: Engineering Comp Science Bldg,242,CSC111,
+10723,B13,2024-09-09,2024-12-04,10:30 AM - 12:20 PM,Thursday,Building: Engineering Comp Science Bldg,242,CSC111,
+10724,A01,2024-09-04,2024-12-04,12:30 PM - 01:20 PM,"Tuesday, Wednesday, Friday",Building: Human & Social Development,A240,CSC115,
+10725,A02,2024-09-04,2024-12-04,12:30 PM - 01:20 PM,"Tuesday, Wednesday, Friday",Building: Human & Social Development,A240,CSC115,
