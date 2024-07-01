@@ -1,0 +1,92 @@
+Sprint 3
+
+Why Use Views?
+
+A subquery must be re-run for every tuple in the outer query. This can be time-consuming and inefficient. 
+To speed up query results, views are used. A view creates a virtual table based on the result set of an SQL statement. 
+It acts as a query alias, which can be used instead of sub-queries. 
+This approach enhances the performance of the database system by avoiding the need to repeatedly execute subqueries.
+By using views, we can simplify complex queries, improve query readability, and enhance database performance.
+-----------
+
+Examples of using views in Complex queries:
+
+1. Finding the courses taught by the top-rated professor
+
+Using Subquery >>>
+
+SELECT Course_ID, Course_name
+FROM Course
+JOIN Taught_By ON Course.Course_ID = Taught_By.Course_ID
+WHERE Prof_netlinkID = (
+  SELECT Prof_netlinkID
+  FROM Professor
+  ORDER BY Prof_score DESC
+  LIMIT 1
+);
+
+Using Views >>>
+
+CREATE VIEW TopRatedProfessor AS
+SELECT Prof_netlinkID
+FROM Professor
+ORDER BY Prof_score DESC
+LIMIT 1;
+
+SELECT Course_ID, Course_name
+FROM Course
+JOIN Taught_By ON Course.Course_ID = Taught_By.Course_ID
+WHERE Prof_netlinkID = (SELECT Prof_netlinkID FROM TopRatedProfessor);
+
+2. Creating View with Course_ID, Course_Name, Professor.Prof_name, Professor.netlinkID, Avg_Prof_Rating, and Number_of_Reviews
+This view provides a comprehensive overview of each course, the professors who teach them, and the average rating and number of reviews each professor has received.
+
+CREATE VIEW Course_Professor_Ratings AS
+SELECT 
+    Course.Course_ID, 
+    Course.Course_name, 
+    Professor.Prof_name,
+    Professor.netlinkID,
+    AVG(Professor.Prof_score) AS Avg_Prof_Rating, 
+    COUNT(Professor.Prof_netlinkID) AS Number_of_Reviews
+FROM 
+    Course
+JOIN 
+    `Taught By` ON Course.Course_ID = `Taught By`.Course_ID
+JOIN 
+    Professor ON `Taught By`.Prof_netlinkID = Professor.Prof_netlinkID
+GROUP BY 
+    Course.Course_ID, Course.Course_name, Professor.Prof_name, Professor.netlinkID 
+HAVING 
+    AVG(Professor.Prof_score) IS NOT NULL;
+
+
+Query 1: Using Course_Professor_Ratings view for getting Courses and their professors if their average rating is more than 4.
+SELECT * 
+FROM Course_Professor_Ratings
+WHERE Avg_Prof_Rating > 4;
+
+Query 2: Using Course_Professor_Ratings view to fetch the schedule of classes being taught in upcoming term along with the ratings of professor teaching that class in that term.
+
+SELECT 
+    Schedule.Course_ID,
+    Schedule.Section,
+    Schedule.Start_date,
+    Schedule.End_date,
+    Schedule.Timeslot,
+    Schedule.Weekday,
+    Schedule.Building,
+    Schedule.Room_number,
+    Professor.Prof_name,
+    Course_Professor_Ratings.Avg_Prof_Rating,
+    Course_Professor_Ratings.Number_of_Reviews
+FROM 
+    Schedule
+JOIN 
+    Course_Professor_Ratings ON Schedule.Course_ID = Course_Professor_Ratings.Course_ID
+JOIN 
+    Professor ON Schedule.Prof_netlinkID = Professor.Prof_netlinkID
+WHERE 
+    Course_Professor_Ratings.Prof_netlinkID = Professor.Prof_netlinkID;
+
+
