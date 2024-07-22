@@ -1,0 +1,149 @@
+######
+Composing Optimized Queries
+######
+
+# Get List of Courses being Taught in a specific semester
+-- poor asymptotic complexity code:
+
+SELECT DISTINCT c.Course_ID, c.Course_name
+FROM Course c
+WHERE c.Course_ID IN (
+    SELECT tb.Course_ID
+    FROM `Taught By` tb
+    WHERE tb.Semester = 'Fall'
+      AND tb.Year = 2023
+);
+
+-- improved code:
+SELECT DISTINCT c.Course_ID, c.Course_name
+FROM Course c
+NATURAL JOIN `Taught By` tb
+WHERE tb.Semester = 'Fall'
+  AND tb.Year = 2023;
+
+In the original query, we used a subquery within an IN clause to filter courses taught in Fall 2023, leading to inefficiency by first selecting relevant course IDs from the Taught By table and then checking membership against each course in the Course table. This involves multiple steps of selection and projection, causing poor performance.The improved query uses a natural join between Course and Taught By, directly filtering by semester and year. This method combines and filters records in one step, reducing complexity and improving performance by avoiding the costly subquery.
+
+Indexes that can be created for faster results:
+CREATE INDEX idx_taught_by_semester_year_course_id
+ON `Taught By` (Semester, Year, Course_ID);
+(This index helps efficiently filter rows based on semester and year, which are used in the WHERE clause.)
+
+# Get Reviews of Specific Course 
+-- poor asymptotic complexity code:
+SELECT r.ID, r.Review, r.Date_of_review, r.Difficulty, r.Prof_rate, p.Prof_name
+FROM Reviews r
+JOIN Course c ON r.Course_ID = c.Course_ID
+JOIN Professor p ON r.Prof_netlinkID = p.Prof_netlinkID
+WHERE c.Course_ID = 'CSC111'
+AND r.ID IN (
+    SELECT r2.ID
+    FROM Reviews r2
+    WHERE r2.Course_ID = 'CSC111'
+);
+
+-- improved code:
+SELECT r.ID, r.Review, r.Date_of_review, r.Difficulty, r.Prof_rate, p.Prof_name
+FROM Reviews r
+NATURAL JOIN Course c
+NATURAL JOIN Professor p
+WHERE c.Course_ID = 'CSC111';
+
+The original query is inefficient due to multiple joins and a subquery to check review IDs for the course ID 'CSC111'. The improved query uses natural joins between Reviews, Course, and Professor tables, directly filtering by the course ID. This simplifies the process, removes the redundant subquery, and improves performance by reducing operations and applying the filter efficiently in one step.
+
+Indexes that can be created for faster results:
+CREATE INDEX idx_reviews_course_id_id
+ON Reviews (Course_ID, ID);
+(This index helps quickly locate reviews for a specific course and efficiently handle joins.)
+
+# Get Professors with Ratings Above Average for Courses They Teach, Including Course Details
+-- poor asymptotic complexity code:
+
+-- improved code:
+SELECT p.Prof_name, c.Course_name, r.Prof_rate
+FROM Professor p
+NATURAL JOIN `Taught By` tb
+NATURAL JOIN Course c
+NATURAL JOIN Reviews r
+WHERE r.Prof_rate > (
+    SELECT AVG(r2.Prof_rate)
+    FROM Reviews r2
+    NATURAL JOIN `Taught By` tb2
+    WHERE tb2.Prof_netlinkID = p.Prof_netlinkID
+)
+ORDER BY p.Prof_name, c.Course_name;
+
+-- Better Code using Views
+
+CREATE VIEW AverageProfessorRatings AS
+SELECT tb.Prof_netlinkID, AVG(r.Prof_rate) AS Avg_Prof_rate
+FROM Reviews r
+NATURAL JOIN `Taught By` tb
+GROUP BY tb.Prof_netlinkID;
+
+SELECT p.Prof_name, c.Course_name, r.Prof_rate
+FROM Professor p
+NATURAL JOIN `Taught By` tb
+NATURAL JOIN Course c
+NATURAL JOIN Reviews r
+JOIN AverageProfessorRatings apr ON p.Prof_netlinkID = apr.Prof_netlinkID
+WHERE r.Prof_rate > apr.Avg_Prof_rate
+ORDER BY p.Prof_name, c.Course_name;
+
+In the original query to retrieve professors with ratings above average for their courses, a subquery calculates the average rating within the main query, leading to redundancy and complexity. The improved version still uses a subquery, causing inefficiency. By creating a view (AverageProfessorRatings) to precompute these average ratings, we streamline execution. This approach separates the average calculation from the main query, reducing redundancy, improving readability, and enhancing performance by leveraging precomputed data.
+
+Indexes that can be created for faster results:
+CREATE INDEX idx_reviews_prof_netlinkid_prof_rate_course_id
+ON Reviews (Prof_netlinkID, Prof_rate, Course_ID);
+(This index aids in computing the average professor rating and filtering reviews by rating.)
+
+CREATE INDEX idx_taught_by_prof_netlinkid_course_id
+ON `Taught By` (Prof_netlinkID, Course_ID);
+(This index helps with the join between Reviews and Taught By)
+
+This can also be optimized using Temporary Table as below:
+CREATE TEMPORARY TABLE AverageProfessorRatings AS
+SELECT tb.Prof_netlinkID, AVG(r.Prof_rate) AS Avg_Prof_rate
+FROM Reviews r
+NATURAL JOIN `Taught By` tb
+GROUP BY tb.Prof_netlinkID;
+
+SELECT p.Prof_name, c.Course_name, r.Prof_rate
+FROM Professor p
+NATURAL JOIN `Taught By` tb
+NATURAL JOIN Course c
+NATURAL JOIN Reviews r
+JOIN AverageProfessorRatings apr ON p.Prof_netlinkID = apr.Prof_netlinkID
+WHERE r.Prof_rate > apr.Avg_Prof_rate
+ORDER BY p.Prof_name, c.Course_name;
+
+-- We can create an index as below for this temporary table 
+CREATE INDEX idx_prof_netlinkID ON AverageProfessorRatings (Prof_netlinkID);
+(By creating an index on the Prof_netlinkID column in the temporary table, we speed up the join operation in the subsequent query. 
+
+# Courses with no reviews and the professors Teaching Them 
+-- poor asymptotic complexity code:
+SELECT c.Course_ID, c.Course_name, p.Prof_name
+FROM Course c
+JOIN `Taught By` tb ON c.Course_ID = tb.Course_ID
+JOIN Professor p ON tb.Prof_netlinkID = p.Prof_netlinkID
+WHERE c.Course_ID NOT IN (
+    SELECT r.Course_ID
+    FROM Reviews r
+)
+ORDER BY c.Course_name;
+
+-- improved code:
+SELECT c.Course_ID, c.Course_name, p.Prof_name
+FROM Course c
+JOIN `Taught By` tb ON c.Course_ID = tb.Course_ID
+JOIN Professor p ON tb.Prof_netlinkID = p.Prof_netlinkID
+LEFT JOIN Reviews r ON c.Course_ID = r.Course_ID
+WHERE r.Course_ID IS NULL
+ORDER BY c.Course_name;
+
+By using a left join and direct NULL check, the improved query reduces complexity and improves performance, avoiding the costly subquery and making the selection more efficient.
+
+Indexes that can be created for faster results:
+CREATE INDEX idx_taught_by_course_id_prof_netlinkid
+ON `Taught By` (Course_ID, Prof_netlinkID);
+(This index aids in joining with Course and Professor tables.)
