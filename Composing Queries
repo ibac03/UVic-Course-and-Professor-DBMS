@@ -21,7 +21,10 @@ NATURAL JOIN `Taught By` tb
 WHERE tb.Semester = 'Fall'
   AND tb.Year = 2023;
 
-In the original query, we used a subquery within an IN clause to filter courses taught in Fall 2023, leading to inefficiency by first selecting relevant course IDs from the Taught By table and then checking membership against each course in the Course table. This involves multiple steps of selection and projection, causing poor performance.The improved query uses a natural join between Course and Taught By, directly filtering by semester and year. This method combines and filters records in one step, reducing complexity and improving performance by avoiding the costly subquery.
+In the original query, we used a subquery within an IN clause to filter courses taught in Fall 2023, leading to inefficiency by first selecting relevant 
+course IDs from the Taught By table and then checking membership against each course in the Course table. This involves multiple steps of selection and 
+projection, causing poor performance.The improved query uses a natural join between Course and Taught By, directly filtering by semester and year. This 
+method combines and filters records in one step, reducing complexity and improving performance by avoiding the costly subquery.
 
 Indexes that can be created for faster results:
 CREATE INDEX idx_taught_by_semester_year_course_id
@@ -48,7 +51,9 @@ NATURAL JOIN Course c
 NATURAL JOIN Professor p
 WHERE c.Course_ID = 'CSC111';
 
-The original query is inefficient due to multiple joins and a subquery to check review IDs for the course ID 'CSC111'. The improved query uses natural joins between Reviews, Course, and Professor tables, directly filtering by the course ID. This simplifies the process, removes the redundant subquery, and improves performance by reducing operations and applying the filter efficiently in one step.
+The original query is inefficient due to multiple joins and a subquery to check review IDs for the course ID 'CSC111'. The improved query uses natural 
+joins between Reviews, Course, and Professor tables, directly filtering by the course ID. This simplifies the process, removes the redundant subquery, 
+and improves performance by reducing operations and applying the filter efficiently in one step.
 
 Indexes that can be created for faster results:
 CREATE INDEX idx_reviews_course_id_id
@@ -89,7 +94,10 @@ JOIN AverageProfessorRatings apr ON p.Prof_netlinkID = apr.Prof_netlinkID
 WHERE r.Prof_rate > apr.Avg_Prof_rate
 ORDER BY p.Prof_name, c.Course_name;
 
-In the original query to retrieve professors with ratings above average for their courses, a subquery calculates the average rating within the main query, leading to redundancy and complexity. The improved version still uses a subquery, causing inefficiency. By creating a view (AverageProfessorRatings) to precompute these average ratings, we streamline execution. This approach separates the average calculation from the main query, reducing redundancy, improving readability, and enhancing performance by leveraging precomputed data.
+In the original query to retrieve professors with ratings above average for their courses, a subquery calculates the average rating within the main query, 
+leading to redundancy and complexity. The improved version still uses a subquery, causing inefficiency. By creating a view (AverageProfessorRatings) to 
+precompute these average ratings, we streamline execution. This approach separates the average calculation from the main query, reducing redundancy, 
+improving readability, and enhancing performance by leveraging precomputed data.
 
 Indexes that can be created for faster results:
 CREATE INDEX idx_reviews_prof_netlinkid_prof_rate_course_id
@@ -141,7 +149,8 @@ LEFT JOIN Reviews r ON c.Course_ID = r.Course_ID
 WHERE r.Course_ID IS NULL
 ORDER BY c.Course_name;
 
-By using a left join and direct NULL check, the improved query reduces complexity and improves performance, avoiding the costly subquery and making the selection more efficient.
+By using a left join and direct NULL check, the improved query reduces complexity and improves performance, avoiding the costly subquery and making the 
+selection more efficient.
 
 Indexes that can be created for faster results:
 CREATE INDEX idx_taught_by_course_id_prof_netlinkid
